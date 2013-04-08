@@ -108,8 +108,9 @@ class BaseDatabaseWrapper(local):
         if self.transaction_state:
             del self.transaction_state[-1]
         else:
-            raise TransactionManagementError("This code isn't under transaction "
-                "management")
+            pass
+            # raise TransactionManagementError("This code isn't under transaction "
+            #     "management")
         if self._dirty:
             self.rollback()
             raise TransactionManagementError("Transaction managed block ended with "
